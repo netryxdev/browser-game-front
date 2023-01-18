@@ -1,29 +1,35 @@
-body
-    margin: 0px
+$title-color: #ff3131
+$subtitle-color: #db2525
+$default-text-color: #d1d5db
+$header-color: #343541
+
 
 .container
     font-family: 'Orchidee', sans-serif
-    background: black
+    background: $header-color//#343541
     padding: 15px
     display: flex
     justify-content: center
     align-items: center
     flex-direction: column
 
-.container h1
+.title
     display: flex
     justify-content: center
     align-items: center
 
-.container h3
-    color: #8B0000
+.subtitle
+    color: $subtitle-color
+    display: flex
+    justify-content: center
+    align-items: center
 
 .container a
     text-decoration: none
-    color: #d1d5db
+    color: $default-text-color
 
 .title 
-    color: #8B0000
+    color: $title-color
 
 
 .headersLink 
