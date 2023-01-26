@@ -12,8 +12,8 @@
             <input type="password" class="form-control mx-auto bg-gray-600 border border-gray-800 text-defaultText 
             p-2 rounded-lg w-full max-w-md" id="password" [(ngModel)]="password" name="password" required>
         </div>
-        <button type="submit" class="bg-indigo-500 text-defaultText
-        p-2 rounded-lg hover:bg-indigo-600 mt-3 w-44 max-w-sm" [disabled]="!loginForm.form.valid">Login</button>
+        <button type="submit" class="bg-indigo-600 text-defaultText
+        p-2 rounded-lg mt-3 w-44 max-w-sm">Login</button>
     </form>
     <div *ngIf="error" class="alert alert-danger">{{error}}</div>
     <div>Don't have an account? <a [routerLink]="['/register']"> Register</a></div>

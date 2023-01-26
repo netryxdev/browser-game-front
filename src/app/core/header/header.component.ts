@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth/auth-service.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
+
+  isLoggedIn: boolean = false; //verificar se funciona comecando com false
 
   ngOnInit(): void {
+    this.authService.getLoggedIn().subscribe(isLoggedIn => {
+        this.isLoggedIn = isLoggedIn;
+    });
   }
 
+  // ngDoCheck(): void {
+  //   this.isLoggedIn = this.authService.isAuthenticated();
+  //   console.log(this.isLoggedIn + ' ONdoCHECK')
+  // }
 
   teste() {
     console.log('home funciona')

@@ -6,8 +6,9 @@
     </a>
         <h4 class="subtitle">The browser game</h4>
     
-    <div class="headersLink">
+    <div *ngIf="!isLoggedIn" class="headersLink">
         <a routerLink="/login">Login</a>
         <a href="/register">Register</a>
     </div>
+    <a *ngIf="isLoggedIn" href="">Logout</a>
 </div>

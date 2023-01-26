@@ -10,11 +10,17 @@ import { Router } from '@angular/router';
 export class WelcomeComponent implements OnInit {
 
   isLoggedIn: boolean = false; //verificar se funciona comecando com false
+  nickName: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isAuthenticated()
+    if(this.isLoggedIn) {
+      this.nickName = this.authService.nickname;
+    } else {
+      this.nickName = '';
+    }
   }
 
 }
