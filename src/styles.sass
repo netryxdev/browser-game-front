@@ -1,9 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base'
+@import 'tailwindcss/components'
+@import 'tailwindcss/utilities'
 $bg-color-main: #444654
 $title-color: #ff3131
 $subtitle-color: #db2525
 $default-text-color: #cfcfcf
 $header-color: #343541
+$main-font-size: 1.08rem
+$main-line-height: 1.5rem
+$main-font-weight: 500
+$main-margin: 8px
 
 body
     margin: 0
@@ -12,9 +19,9 @@ body
     font-family: 'Inconsolata', monospace
 
 main
-    font-size: 1.08rem
-    line-height: 1.5rem
+    font-size: $main-font-size
+    line-height: $main-line-height
     tab-size: 4
     text-align: center
-    font-weight: 500
-    margin: 8px
+    font-weight: $main-font-weight
+    margin: $main-margin
