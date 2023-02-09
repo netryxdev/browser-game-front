@@ -5,7 +5,7 @@
             <label class="block text-defaultText font-medium mb-2"  for="email">Username</label>
             <input type="email"
             class="form-control mx-auto bg-gray-600 border border-gray-800 text-defaultText 
-            p-2 rounded-lg w-full max-w-md" id="email" [(ngModel)]="user_name" name="user_name" required>
+            p-2 rounded-lg w-full max-w-md" id="email" [(ngModel)]="username" name="username" required>
         </div>
         <div class="form-group block text-left p-3 rounded-lg mt-3">
             <label class="block text-defaultText font-medium mb-2" for="password" for="password">Password</label>
@@ -15,7 +15,7 @@
         <button type="submit" class="bg-indigo-600 text-defaultText
         p-2 rounded-lg mt-3 w-44 max-w-sm">Login</button>
     </form>
-    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <div *ngIf="errorMessage" class="bg-red-500 text-white p-2 rounded-lg text-sm w-64 mx-auto">{{errorMessage}}</div>
+    <br>
     <div>Don't have an account? <a [routerLink]="['/register']"> Register</a></div>
 </div>
-

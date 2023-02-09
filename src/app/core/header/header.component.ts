@@ -18,12 +18,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  // ngDoCheck(): void {
-  //   this.isLoggedIn = this.authService.isAuthenticated();
-  //   console.log(this.isLoggedIn + ' ONdoCHECK')
-  // }
-
-  teste() {
-    console.log('home funciona')
+  logout() {
+    this.authService.logout();
   }
 }

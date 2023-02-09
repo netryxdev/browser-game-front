@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { catchError, take, tap } from 'rxjs/operators';
+import { BehaviorSubject, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +11,13 @@ export class AuthService {
   private token:string = '';
   nickname: string = '';
   private isLoggedIn = new BehaviorSubject<boolean>(false);
+  errorMessage: string = ''
 
   constructor(private http: HttpClient) {}
 
-  login(user_name: string, password: string) {
+  login(username: string, password: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const body = { user_name, password };
+    const body = { username, password };
 
     return this.http
       .post(`${this.apiUrl}/login`, body, { headers })
@@ -24,15 +25,21 @@ export class AuthService {
         if(res.token) {
           localStorage.setItem('token', res.token);
           this.token = res.token;
-          this.nickname = body.user_name;
+          this.nickname = body.username;
           this.isLoggedIn.next(true);
         }
-      }));
+      }),
+      catchError((error) => {
+          this.errorMessage = error.error.message;
+          return this.errorMessage
+      }),
+      take(1) //Se você precisa evitar que o código dentro do tap seja executado mais de uma vez, pode considerar usar o take(1) para finalizar o seu stream após a primeira transmissão de dados.
+      );
   }
 
-  register(user_name: string, email: string, password: string) {
+  register(username: string, email: string, password: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const body = { user_name, email, password };
+    const body = { username, email, password };
 
     return this.http
       .post(`${this.apiUrl}/register`, body, { headers })
