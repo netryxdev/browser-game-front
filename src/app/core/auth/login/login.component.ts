@@ -1,7 +1,7 @@
 import { CheckboxControlValueAccessor, FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../shared/auth/auth-service.service';
+import { AuthService } from '../../services/auth/auth-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

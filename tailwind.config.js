@@ -10,7 +10,7 @@ module.exports = {
         'defaultText': '#cfcfcf',
         'defaultTitle': '#ff3131',
         'defaultSubtitle': '#db2525',
-        'defaultHeader': '#343541'
+        'defaultHeaderBg': '#343541'
       }
     },
   },
